@@ -29,6 +29,16 @@ const Chatting = () => {
     }
   };
 
+  const getCurrentTime = () => {
+    const now = new Date();
+    let hours = now.getHours();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Handle midnight case (0 hours)
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    return `${hours}:${minutes} ${ampm}`;
+  };  
+
   return (
     <div className="mainContainer">
       <div className="msgContainer">
@@ -37,12 +47,13 @@ const Chatting = () => {
           <p>Convo</p>
         </div>
         <div className="msgArea">
+          <p style={{textAlign:'center', color:'gray'}}>Start conversation...</p>
           {messages.map((msg, index) => (
             <div
               key={index}
               className={`message ${msg.name === name ? "outgoing" : "incoming"}`}
             >
-              <p><strong>{msg.name}</strong><br/>{msg.message}</p>
+              <p><strong>{msg.name === name ? "You" : msg.name}</strong><br/>{msg.message} <br/><span>{getCurrentTime()}</span></p>
             </div>
           ))}
         </div>
