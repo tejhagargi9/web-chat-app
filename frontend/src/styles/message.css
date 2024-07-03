@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.msgContainer {
+    border: 2px solid red;
+    height: 80vh;
+    width: 60vw;
+    border-radius: .5vw;
+}
+.msgNavbar {
+    width: 100%;
+    border: 2px solid blue;
+    border-radius: .5vw .5vw 0vw 0vw;
+    background-color: rgba(218, 218, 218, 0.534);
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    padding-left: 1vw;
+    gap: .3vw;
+}
+.msgNavbar img {
+    width: 2vw;
+}
+.msgNavbar p {
+    font-size: 1.5vw;
+}
+.msgArea {
+    border: 2px solid yellow;
+    height: calc(80vh - 12vh);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: .5vw;
+}
+input {
+    width: 92%;
+    border: none;
+    /* min-height: 5vh; */
+    padding: 8px;
+    font-size: 1vw;
+    outline: none;
+    background: #dedcdc;
+}
+form button {
+    width: 4.5vw;
+    height: 5vh;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(39, 133, 214);
+    margin-left: .2vw;
+}
+.message {
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    max-width: 300px;
+    position: relative;
+}
+.incoming {
+    background: #2522b06f;
+}
+.outgoing {
+    margin-left: auto;
+    background: #648cae73;
+}
