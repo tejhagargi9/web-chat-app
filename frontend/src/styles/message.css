@@ -10,12 +10,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5vw;
 }
 .msgContainer {
     /* border: 2px solid red; */
     /* border: 2px solid yellow; */
-    border-left: 2px solid gray;
-    border-right: 2px solid gray;
+    border: 2px solid gray;
+        /* border-right: 2px solid gray; */
 
     height: 80vh;
     width: 60vw;
@@ -36,10 +37,10 @@
     gap: .3vw;
 }
 .msgNavbar img {
-    width: 2vw;
+    width: 25px;
 }
 .msgNavbar p {
-    font-size: 1.5vw;
+    font-size: 20px;
 }
 .msgArea {
     /* border: 2px solid yellow; */
@@ -67,6 +68,8 @@ form {
     /* border: 2px solid red; */
     border-radius: .5vw;
     background-color: #726d6d88;
+    border: 2px solid gray;
+
 }
 input {
     width: 92%;
@@ -81,7 +84,6 @@ input {
 form button {
     width: 4.5vw;
     height: 5vh;
-    border: none;
     border-radius: 10px;
     background-color: rgb(39, 133, 214);
     margin-left: .2vw;
@@ -94,17 +96,49 @@ form button {
     position: relative;
 }
 span {
-    font-size: .5vw;
+    font-size: 10px;
     font-weight: 800;
     color: rgb(53, 53, 53);
 }
+.message p {
+    max-width: 250px;
+    /* border: 2px solid blue; */
+    word-break: break-all;
+}
 .incoming {
     background: #2522b06f;
+    height: auto;
     
 }
 .outgoing {
+    height: auto;
     margin-left: auto;
     background: #648cae73;
     /* max-width:300px ; */
 
+}
+.activeMembers {
+    border: 2px solid blue;
+    overflow-y: scroll;
+    height: 80vh;
+    width: 20vw;
+    border-radius: .5vw;
+}
+.activeMembers .header p {
+    font-size: 1.8vw;
+    margin-top: .5vw;
+    text-decoration: underline;
+}
+.header {
+    text-align: center;
+}
+.memberNames {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5vw;
+    margin-top: 1vw;
+}
+.memberNames p {
+    font-size: 1.2vw;
 }
