@@ -21,8 +21,7 @@ io.on("connection", (socket) => {
     }); 
 
     socket.on("chat", (payload) => {
-        socket.broadcast.emit("chat", payload); // Broadcast to all clients except the sender
-    });
+        socket.broadcast.emit("chat", payload); 
     
     socket.on('disconnect', () => {
         console.log('Disconnected');

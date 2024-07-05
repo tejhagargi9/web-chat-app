@@ -4,6 +4,11 @@
     box-sizing: border-box;
     font-family: cursive;
 }
+
+body {
+    background: linear-gradient(rgb(255, 255, 255), rgb(243, 191, 191));
+}
+
 .mainContainer {
     width: 100vw;
     height: 100vh;
@@ -11,12 +16,17 @@
     justify-content: center;
     align-items: center;
     gap: 5vw;
+    /* flex-direction: column; */
 }
+.mainContainer > h2 {
+    display: none;
+}
+
 .msgContainer {
     /* border: 2px solid red; */
     /* border: 2px solid yellow; */
     border: 2px solid gray;
-        /* border-right: 2px solid gray; */
+    /* border-right: 2px solid gray; */
 
     height: 80vh;
     width: 60vw;
@@ -29,6 +39,7 @@
     width: 100%;
     /* border: 2px solid blue; */
     border-radius: .5vw .5vw 0vw 0vw;
+    display: flex;
     background-color: #726d6d47;
     height: 6vh;
     display: flex;
@@ -36,34 +47,39 @@
     padding-left: 1vw;
     gap: .3vw;
 }
+
 .msgNavbar img {
     width: 25px;
 }
+
 .msgNavbar p {
     font-size: 20px;
 }
 .msgArea {
     /* border: 2px solid yellow; */
     height: calc(80vh - 12vh);
+    background-color: #f0eeeecf;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     padding: .5vw;
 }
+
 .msgArea::-webkit-scrollbar {
     width: 8px;
     background-color: #f5f5f5;
     border-radius: 4px;
-  }
-  
-  .msgArea::-webkit-scrollbar-thumb {
+}
+
+.msgArea::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 4px;
-  }
-  
-  .msgArea::-webkit-scrollbar-thumb:hover {
+}
+
+.msgArea::-webkit-scrollbar-thumb:hover {
     background-color: #555;
-  }
+}
+
 form {
     /* border: 2px solid red; */
     border-radius: .5vw;
@@ -71,6 +87,7 @@ form {
     border: 2px solid gray;
 
 }
+
 input {
     width: 92%;
     border: none;
@@ -81,6 +98,7 @@ input {
     outline: none;
     background: #dedcdc;
 }
+
 form button {
     width: 4.5vw;
     height: 5vh;
@@ -88,28 +106,33 @@ form button {
     background-color: rgb(39, 133, 214);
     margin-left: .2vw;
 }
+
 .message {
     padding: 20px;
     border-radius: 4px;
     margin-bottom: 10px;
-    max-width:300px ;
+    max-width: 300px;
     position: relative;
 }
+
 span {
     font-size: 10px;
     font-weight: 800;
     color: rgb(53, 53, 53);
 }
+
 .message p {
     max-width: 250px;
     /* border: 2px solid blue; */
     word-break: break-all;
 }
+
 .incoming {
     background: #2522b06f;
     height: auto;
-    
+
 }
+
 .outgoing {
     height: auto;
     margin-left: auto;
@@ -117,21 +140,27 @@ span {
     /* max-width:300px ; */
 
 }
+
 .activeMembers {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     overflow-y: scroll;
     height: 80vh;
     width: 20vw;
     border-radius: .5vw;
+    background-color: #ebe5e5;
+    box-shadow: 0px 7px 18px black;
 }
+
 .activeMembers .header p {
     font-size: 1.8vw;
     margin-top: .5vw;
     text-decoration: underline;
 }
+
 .header {
     text-align: center;
 }
+
 .memberNames {
     text-align: center;
     display: flex;
@@ -139,6 +168,227 @@ span {
     gap: .5vw;
     margin-top: 1vw;
 }
+
 .memberNames p {
     font-size: 1.2vw;
+}
+
+@media screen and (max-width: 830px) {
+    .msgContainer {
+        /* border: 2px solid red; */
+        /* border: 2px solid yellow; */
+        border: 2px solid gray;
+        /* border-right: 2px solid gray; */
+
+        height: 80vh;
+        width: 70vw;
+        border-radius: .5vw;
+        /* overflow-y: auto; */
+    }
+
+    input {
+        width: 93%;
+        border: none;
+        /* min-height: 5vh; */
+        padding: 10px;
+        font-size: 2vw;
+        border-radius: 0px 0px 5px 5px;
+        outline: none;
+        background: #dedcdc;
+    }
+
+    form button {
+        width: 4.5vw;
+        height: 5vh;
+        font-size: 1.5vw;
+        border-radius: 10px;
+        background-color: rgb(39, 133, 214);
+        margin-left: .2vw;
+    }
+
+    .memberNames p {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .msgContainer {
+        /* border: 2px solid red; */
+        /* border: 2px solid yellow; */
+        border: 2px solid gray;
+        /* border-right: 2px solid gray; */
+
+        height: 80vh;
+        width: 80vw;
+        border-radius: .5vw;
+        /* overflow-y: auto; */
+    }
+    .mainContainer {
+        flex-direction: column;
+    }
+    .mainContainer > h2 {
+        display: block;
+    }
+
+    input {
+        width: 92%;
+        border: none;
+        /* min-height: 5vh; */
+        padding: 10px;
+        font-size: 1vw;
+        border-radius: 0px 0px 5px 5px;
+        outline: none;
+        background: #dedcdc;
+        font-size: 2vw;
+    }
+
+    form button {
+        width: 6vw;
+        height: 5vh;
+        font-size: 1.8vw;
+        border-radius: 10px;
+        background-color: rgb(39, 133, 214);
+        margin-left: .2vw;
+    }
+
+    .memberNames p {
+        font-size: vw;
+    }
+
+    .activeMembers {
+        /* border: 2px solid blue; */
+        display: none;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .msgContainer {
+        /* border: 2px solid red; */
+        /* border: 2px solid yellow; */
+        border: 2px solid gray;
+        /* border-right: 2px solid gray; */
+
+        height: 80vh;
+        width: 80vw;
+        border-radius: .5vw;
+        /* overflow-y: auto; */
+    }
+
+    input {
+        width: 92%;
+        border: none;
+        /* min-height: 5vh; */
+        padding: 10px;
+        font-size: 2vw;
+        border-radius: 0px 0px 5px 5px;
+        outline: none;
+        background: #dedcdc;
+        font-size: 2vw;
+    }
+
+    form button {
+        width: 6vw;
+        height: 5vh;
+        font-size: 1.8vw;
+        border-radius: 10px;
+        background-color: rgb(39, 133, 214);
+        margin-left: .2vw;
+    }
+    .incoming {
+        background: #2522b06f;
+        height: auto;
+    
+    }
+    
+    .outgoing {
+        height: auto;
+        margin-left: auto;
+        background: #648cae73;
+        /* max-width:300px ; */
+    
+    }
+    .message {
+        padding: 20px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        max-width: 210px;
+        position: relative;
+    }
+    
+    span {
+        font-size: 10px;
+        font-weight: 800;
+        color: rgb(53, 53, 53);
+    }
+    
+    .message p {
+        max-width: 250px;
+        /* border: 2px solid blue; */
+        word-break: break-all;
+    }
+}
+@media screen and (max-width: 391px) {
+    .msgContainer {
+        /* border: 2px solid red; */
+        /* border: 2px solid yellow; */
+        border: 2px solid gray;
+        /* border-right: 2px solid gray; */
+
+        height: 80vh;
+        width: 80vw;
+        border-radius: .5vw;
+        /* overflow-y: auto; */
+    }
+
+    input {
+        width: 85%;
+        border: none;
+        /* min-height: 5vh; */
+        padding: 10px;
+        font-size: 3vw;
+        border-radius: 0px 0px 5px 5px;
+        outline: none;
+        background: #dedcdc;
+    }
+
+    form button {
+        width: 11vw;
+        height: 5vh;
+        font-size: 3vw;
+        border-radius: 10px;
+        background-color: rgb(39, 133, 214);
+        margin-left: .2vw;
+    }
+    .incoming {
+        background: #2522b06f;
+        height: auto;
+    
+    }
+    
+    .outgoing {
+        height: auto;
+        margin-left: auto;
+        background: #648cae73;
+        /* max-width:300px ; */
+    
+    }
+    .message {
+        padding: 20px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        max-width: 230px;
+        position: relative;
+    }
+    
+    span {
+        font-size: 10px;
+        font-weight: 800;
+        color: rgb(53, 53, 53);
+    }
+    
+    .message p {
+        max-width: 250px;
+        /* border: 2px solid blue; */
+        word-break: break-all;
+    }
 }

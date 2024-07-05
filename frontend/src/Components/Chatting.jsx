@@ -52,16 +52,6 @@ const Chatting = () => {
     []
   );
 
-  const sendChat = (e) => {
-    e.preventDefault();
-    if (message.trim()) {
-      const msg = { name, message };
-      setMessages((prevMessages) => [...prevMessages, msg]); // Optimistic UI update
-      socket.current.emit("chat", msg);
-      setMessage("");
-    }
-  };
-
   const getCurrentTime = () => {
     const now = new Date();
     let hours = now.getHours();
@@ -72,8 +62,20 @@ const Chatting = () => {
     return `${hours}:${minutes} ${ampm}`;
   };
 
+  const sendChat = (e) => {
+    e.preventDefault();
+    if (message.trim()) {
+      const currentTime = getCurrentTime();
+      const msg = { name, message, currentTime };
+      setMessages((prevMessages) => [...prevMessages, msg]);
+      socket.current.emit("chat", msg);
+      setMessage("");
+    }
+  };
+
   return (
     <div className="mainContainer">
+      <h2>{activeUsers.length - 1 > 0 ? `Total active users : ${activeUsers.length}`  : "Chat room is empty"}</h2>
       <div className="msgContainer">
         <div className="msgNavbar">
           <img src="./public/images/comment.png" alt="Convo" />
@@ -94,7 +96,7 @@ const Chatting = () => {
                 <strong>{msg.name === name ? "You" : msg.name}</strong>
                 <br />
                 {msg.message} <br />
-                <span>{getCurrentTime()}</span>
+                <span>{msg.currentTime}</span>
               </p>
             </div>
           ))}
@@ -115,9 +117,13 @@ const Chatting = () => {
           <p>Active Members</p>
         </div>
         <div className="memberNames">
-          {activeUsers.map((user, index) => (
-            <p key={index}>{user !== name ? user : ''}</p>
-          ))}
+          {activeUsers.length - 1 > 0 ? (
+            activeUsers.map((user, index) => (
+              <p key={index}>{user !== name ? user : ""}</p>
+            ))
+          ) : (
+            <p>Chat room is Empty</p>
+          )}
         </div>
       </div>
     </div>
