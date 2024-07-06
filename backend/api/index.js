@@ -5,12 +5,17 @@ const cors = require("cors");
 
 const app = express();
 const server = http.createServer(app);
+const allowedOrigins = [
+  "https://web-chat-app-gold.vercel.app",
+  "https://web-chat-app-jx7l.vercel.app",
+];
+
 const io = socketio(server, {
   cors: {
-    origin: "*", // Allow requests from all origins
-    methods: ["GET", "POST"], // Allow specific HTTP methods
-    allowedHeaders: ["Content-Type"], // Allow specific headers
-    credentials: true, // Allow cookies to be sent with requests
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
   },
 });
 
