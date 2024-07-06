@@ -6,7 +6,8 @@ const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 const allowedOrigins = [
-  "https://convowebchat.vercel.app/"
+  "https://web-chat-app-gold.vercel.app",
+  "https://convowebchat.vercel.app/",
 ];
 
 const io = socketio(server, {
