@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 
 const corsOptions = {
-  origin: "https://convowebchat.vercel.app", // Allow requests from this origin
+  origin: "*", // Allow requests from this origin
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 };
