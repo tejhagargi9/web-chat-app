@@ -14,14 +14,17 @@ const Chatting = () => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io("https://web-chat-app-gold.vercel.app"); // Ensure this is the correct URL without trailing slash
+    socket.current = io("https://web-chat-app-gold.vercel.app", {
+      transports: ["websocket", "polling"],
+      withCredentials: true,
+    }); // Ensure this is the correct URL without trailing slash
 
     socket.current.on("chat", (msg) => {
       setMessages((prevMessages) => [...prevMessages, msg]);
     });
 
     socket.current.on("activeUsers", (users) => {
-      console.log("Active users received: ", users); 
+      console.log("Active users received: ", users);
       setActiveUsers(users);
     });
 
