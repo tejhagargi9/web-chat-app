@@ -13,7 +13,7 @@ const Chatting = () => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io("http://localhost:3000");
+    socket.current = io("https://web-chat-app-flame.vercel.app/");
 
     socket.current.on("chat", (msg) => {
       setMessages((prevMessages) => [...prevMessages, msg]);
