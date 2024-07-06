@@ -6,7 +6,7 @@ import debounce from "lodash.debounce";
 const Chatting = () => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const [name, setName] = useState(localStorage.getItem("userName"));
+  const [name, setName] = useState("");
   const [activeUsers, setActiveUsers] = useState([]);
   const messagesEndRef = useRef(null);
 
@@ -20,6 +20,7 @@ const Chatting = () => {
     });
 
     socket.current.on("activeUsers", (users) => {
+      console.log("Active users received: ", users); 
       setActiveUsers(users);
     });
 
@@ -31,6 +32,7 @@ const Chatting = () => {
       socket.current.off("chat");
       socket.current.off("activeUsers");
       socket.current.disconnect();
+      setActiveUsers([]);
     };
   }, []);
 
@@ -72,10 +74,10 @@ const Chatting = () => {
       setMessage("");
     }
   };
+  console.log(activeUsers);
 
   return (
     <div className="mainContainer">
-      <h2>{activeUsers.length - 1 > 0 ? `Total active users : ${activeUsers.length}`  : "Chat room is empty"}</h2>
       <div className="msgContainer">
         <div className="msgNavbar">
           <img src="./public/images/comment.png" alt="Convo" />
