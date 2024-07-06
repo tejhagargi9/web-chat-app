@@ -6,28 +6,23 @@ const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 
-const allowedOrigins = [
-  "https://web-chat-app-gold.vercel.app",
-  "https://web-chat-app-jx7l.vercel.app",
-  "https://convowebchat.vercel.app"
-];
 
-const io = socketio(server, {
-  cors: {
-    origin: allowedOrigins,
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
-    credentials: true,
-  },
-});
+const corsOptions = {
+  origin: "https://convowebchat.vercel.app", // Allow requests from this origin
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
+
+const io = socketio(server);
 
 // Use the cors middleware
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "https://convowebchat.vercel.app",
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
-    credentials: true,
   })
 );
 

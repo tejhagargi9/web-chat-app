@@ -14,7 +14,7 @@ const Chatting = () => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io("https://web-chat-app-gold.vercel.app", {
+    socket.current = io("http://localhost:3000", {
       transports: ["websocket", "polling"],
       withCredentials: true,
     }); // Ensure this is the correct URL without trailing slash
