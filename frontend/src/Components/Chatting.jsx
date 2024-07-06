@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import "../styles/message.css";
 import io from "socket.io-client";
 import debounce from "lodash.debounce";
+import { images } from "../javascripts/images";
 
 const Chatting = () => {
   const [message, setMessage] = useState("");
@@ -80,7 +81,7 @@ const Chatting = () => {
     <div className="mainContainer">
       <div className="msgContainer">
         <div className="msgNavbar">
-          <img src="./public/images/comment.png" alt="Convo" />
+          <img src={images.logo} alt="Convo" />
           <p>Convo</p>
         </div>
         <div className="msgArea">
